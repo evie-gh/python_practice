@@ -35,7 +35,7 @@ def bubble_sort(list, comparator = default_comparator, sort_order = SortOrder.AS
         if not swap_performed:
             return
         
-def insertion_sort(list, comparator = default_comparator, sort_order = SortOrder.ASCENDING):
+def selection_sort(list, comparator = default_comparator, sort_order = SortOrder.ASCENDING):
     if sort_order not in SortOrder:
         raise ValueError("sort_order must be in " + list(SortOrder))
     
