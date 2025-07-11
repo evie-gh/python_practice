@@ -5,7 +5,8 @@ import sorts
 
 sorting_algorithms = {
     "bubblesort" : sorts.bubble_sort,
-    "selectionsort" : sorts.selection_sort
+    "selectionsort" : sorts.selection_sort,
+    "insertionsort" : sorts.insertion_sort
 }
 
 class TestSortAlgorithms(unittest.TestCase):

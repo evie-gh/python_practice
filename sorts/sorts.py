@@ -22,6 +22,9 @@ def swap(list, index0, index1):
 def bubble_sort(list, comparator = default_comparator, sort_order = SortOrder.ASCENDING):
     if sort_order not in SortOrder:
         raise ValueError("sort_order must be in " + list(SortOrder))
+    
+    if len(list) <= 1:
+        return
 
     for _ in list:
         swap_performed = False
@@ -39,6 +42,9 @@ def selection_sort(list, comparator = default_comparator, sort_order = SortOrder
     if sort_order not in SortOrder:
         raise ValueError("sort_order must be in " + list(SortOrder))
     
+    if len(list) <= 1:
+        return
+    
     for i in range(len(list)):
         lowest_index = i
         lowest_value = list[i]
@@ -52,3 +58,19 @@ def selection_sort(list, comparator = default_comparator, sort_order = SortOrder
         if lowest_index != i:
             swap(list, i, lowest_index)
 
+def insertion_sort(list, comparator = default_comparator, sort_order = SortOrder.ASCENDING):
+    if sort_order not in SortOrder:
+        raise ValueError("sort_order must be in " + list(SortOrder))
+    
+    if len(list) <= 1:
+        return
+
+    for i in range(1, len(list)):
+        for j in range(i, 0, -1):
+            comparison = comparator(list[j], list[j - 1])
+            if sort_order == SortOrder.DESCENDING:
+                comparison *= -1
+            if comparison < 0:
+                swap(list, j, j - 1)
+            else:
+                break
