@@ -24,3 +24,19 @@ def bubble_sort(list, comparator, sort_order = SortOrder.ASCENDING):
                 swap_performed = True
         if not swap_performed:
             return
+        
+def insertion_sort(list, comparator, sort_order = SortOrder.ASCENDING):
+    if sort_order not in SortOrder:
+        raise ValueError("sort_order must be in " + list(SortOrder))
+    
+    for i in range(len(list)):
+        lowest_index = i
+        lowest_value = list[i]
+        for j in range(i + 1, len(list)):
+            if list[j] < lowest_value:
+                lowest_index = j
+                lowest_value = list[j]
+        if lowest_index != i:
+            swap(list, i, lowest_index)
+            
+# todo: add automated test suite I can run against all algorithms
