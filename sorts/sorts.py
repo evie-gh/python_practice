@@ -25,7 +25,7 @@ def bubble_sort(list, comparator = default_comparator, sort_order = SortOrder.AS
     
     if len(list) <= 1:
         return
-    
+      
     comp = comparator if sort_order == SortOrder.ASCENDING else lambda x, y: comparator(x, y) * -1
 
     for _ in list:
